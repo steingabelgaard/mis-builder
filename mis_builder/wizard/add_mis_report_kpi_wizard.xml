@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Stein & Gabelgaard ApS
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="add_mis_report_kpi_wizard_form_view">
+        <field name="name">add.mis.report.kpi.wizard.form (in mis_builder)</field>
+        <field name="model">add.mis.report.kpi.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Mis Report Kpi Wizard">
+                <!-- TODO -->
+                <group>
+                	<field name="report_id"
+                           invisible="0"/>
+                	<field name="account_ids"/>
+                    <field name="name"/>
+                    <field name="inc_acc_code"/>
+                    <field name="style_id"/>
+                    <field name="style_expression"/>
+                    <field name="budgetable"/> 
+                </group>
+                <footer>
+                    <button name="doit"
+                            string="OK"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="add_mis_report_kpi_wizard_act_window">
+        <field name="name">Add Accounts as KPIs</field> <!-- TODO -->
+        <field name="res_model">add.mis.report.kpi.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_record_id': active_id}</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.values" id="add_mis_report_kpi_wizard_act_multi">
+        <field name="name">Add Accounts as KPIs</field> <!-- TODO -->
+        <field name="key2">client_action_multi</field>
+        <field name="value" eval="'ir.actions.act_window,' +str(ref('add_mis_report_kpi_wizard_act_window'))" />
+        <field name="model">mis.report</field> <!-- TODO -->
+    </record>
+
+</odoo>

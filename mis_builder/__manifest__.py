@@ -18,8 +18,10 @@
         'report_xlsx',  # OCA/reporting-engine
         'date_range',  # OCA/server-tools
         'web_widget_color',  # OCA/web
+        'onchange_helper',  # OCA/server-tools
     ],
     'data': [
+        'wizard/add_mis_report_kpi_wizard.xml',
         'wizard/mis_builder_dashboard.xml',
         'views/mis_report.xml',
         'views/mis_report_instance.xml',
