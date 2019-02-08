@@ -34,7 +34,7 @@ class MisReportInstancePeriod(models.Model):
         #         sudoself.report_instance_id.account_analytic_id.id))
         if sudoself.analytic_account_id:
             aml_domain.append(
-                ('analytic_account_id', '=', 
+                ('analytic_account_id', 'child_of', 
                  sudoself.analytic_account_id.id))
         return aml_domain
     
@@ -48,6 +48,6 @@ class MisReportInstancePeriod(models.Model):
         
         if sudoself.analytic_account_id:
             aml_domain.append(
-                ('analytic_account_id', '=', 
+                ('analytic_account_id', 'child_of', 
                  sudoself.analytic_account_id.id))
         return aml_domain
