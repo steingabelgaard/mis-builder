@@ -294,7 +294,7 @@ class MisReportInstancePeriod(models.Model):
         for filter_name, values in mis_report_filters.items():
             if values:
                 value = values.get('value')
-                operator = values.get('operator', '=')
+                operator = values.get('operator', 'child_of')
                 filters.append((filter_name, operator, value))
         return filters
 
@@ -574,6 +574,7 @@ class MisReportInstance(models.Model):
         if self.analytic_account_id:
             context['mis_report_filters']['analytic_account_id'] = {
                 'value': self.analytic_account_id.id,
+                'operator': 'child_of',
             }
 
     @api.multi

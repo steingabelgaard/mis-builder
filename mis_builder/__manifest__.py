@@ -22,6 +22,7 @@
     ],
     'data': [
         'wizard/add_mis_report_kpi_wizard.xml',
+        'wizard/mis_multi_report.xml',
         'wizard/mis_builder_dashboard.xml',
         'views/mis_report.xml',
         'views/mis_report_instance.xml',

@@ -4,3 +4,4 @@
 
 from . import mis_builder_dashboard
 from . import add_mis_report_kpi_wizard
+from . import mis_multi_report

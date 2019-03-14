@@ -9,5 +9,14 @@
       <field name="report_type">xlsx</field>
       <field name="auto" eval="False"/>
     </record>
+    
+    <record id="xls_export2" model="ir.actions.report.xml">
+      <field name="name">MIS report instance 2 XLS report</field>
+      <field name="model">mis.report.instance</field>
+      <field name="type">ir.actions.report.xml</field>
+      <field name="report_name">mis.report.instance2.xlsx</field>
+      <field name="report_type">xlsx</field>
+      <field name="auto" eval="False"/>
+    </record>
 
 </odoo>

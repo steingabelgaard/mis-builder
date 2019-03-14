@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Stein & Gabelgaard ApS
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="mis_multi_report_form_view">
+        <field name="name">mis.multi.report.form (in mis_builder)</field>
+        <field name="model">mis.multi.report</field>
+        <field name="arch" type="xml">
+            <form string="Add Mis Report Kpi Wizard">
+                <!-- TODO -->
+                <group>
+                	<field name="report_id"
+                           invisible="0"/>
+                	<field name="analytic_account_id"/>
+                </group>
+                <footer>
+                    <button name="doit"
+                            string="OK"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mis_multi_report_act_window">
+        <field name="name">MIS Multi Report</field> <!-- TODO -->
+        <field name="res_model">mis.multi.report</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_record_id': active_id}</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.values" id="mis_multi_report_act_multi">
+        <field name="name">MIS Multi Report</field> <!-- TODO -->
+        <field name="key2">client_action_multi</field>
+        <field name="value" eval="'ir.actions.act_window,' +str(ref('mis_multi_report_act_window'))" />
+        <field name="model">mis.report.instance</field> <!-- TODO -->
+    </record>
+
+</odoo>
