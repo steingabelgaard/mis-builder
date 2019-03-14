@@ -12,7 +12,7 @@
                 <!-- TODO -->
                 <group>
                 	<field name="report_id"
-                           invisible="0"/>
+                           invisible="1"/>
                 	<field name="account_ids"/>
                     <field name="name"/>
                     <field name="inc_acc_code"/>
