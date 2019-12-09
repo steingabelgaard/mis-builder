@@ -27,7 +27,7 @@
             <field name="model">mis.report.instance</field>
             <field name="arch" type="xml">
                 <tree string="MIS Report Instances">
-                    <button name="preview" type="object" icon="fa-search" />
+                    <button type="object" name="preview" string="Preview" icon="fa-search" />
                     <button type="object" name="print_pdf" string="Print" icon="fa-print" />
                     <button type="object" name="export_xls" string="Export" icon="fa-download" />
                     <field name="name"/>
@@ -108,12 +108,16 @@
                                 <field name="company_ids" groups="base.group_multi_company" widget="many2many_tags"
                                         domain="[('id', 'child_of', company_id)]"
                                         attrs="{'invisible': [('multi_company', '=', False)]}"/>
+                                <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                                <field name="analytic_tag_ids" groups="analytic.group_analytic_tags" widget="many2many_tags"/>
                             </group>
                         </page>
                         <page string="Layout">
                             <group name="layout">
                                 <field name="landscape_pdf"/>
                                 <field name="no_auto_expand_accounts"/>
+                                <field name="display_columns_description"/>
+                                <field name="hide_analytic_filters"/>
                             </group>
                         </page>
                     </notebook>
@@ -199,6 +203,7 @@
                         <group col="2" colspan="2" name="source_data">
                             <field name="source_aml_model_id"
                                 attrs="{'invisible': [('source', '!=', 'actuals_alt')], 'required': [('source', '==', 'actuals_alt')]}"/>
+                            <field name="source_aml_model_name" invisible="1"/>
                             <field name="source_sumcol_ids"
                                    attrs="{'invisible': [('source', '!=', 'sumcol')]}"
                                    nolabel="1" colspan="2">
@@ -228,6 +233,7 @@
                         <group name="relative" attrs="{'invisible': [('mode', '!=', 'relative')]}" colspan="4">
                             <group>
                                 <field name="type" attrs="{'required': [('mode', '=', 'relative')]}"/>
+                                <field name="is_ytd"/>
                                 <field name="date_range_type_id"
                                        attrs="{'invisible': [('type', '!=', 'date_range')], 'required': [('type', '=', 'date_range'), ('mode', '=', 'relative')]}"/>
                                 <field name="offset"/>

@@ -7,25 +7,30 @@ MIS Builder Demo
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Alpha
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fmis--builder-lightgray.png?logo=github
-    :target: https://github.com/OCA/mis-builder/tree/11.0/mis_builder_demo
+    :target: https://github.com/OCA/mis-builder/tree/12.0/mis_builder_demo
     :alt: OCA/mis-builder
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/mis-builder-11-0/mis-builder-11-0-mis_builder_demo
+    :target: https://translation.odoo-community.org/projects/mis-builder-12-0/mis-builder-12-0-mis_builder_demo
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/248/11.0
+    :target: https://runbot.odoo-community.org/runbot/248/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 Demo addon for MIS Builder.
+
+.. IMPORTANT::
+   This is an alpha version, the data model and design can change at any time without warning.
+   Only for development or testing purpose, do not use in production.
+   `More details on development status <https://odoo-community.org/page/development-status>`_
 
 **Table of contents**
 
@@ -49,9 +54,41 @@ chart of accounts:
 Known issues / Roadmap
 ======================
 
-The mis_builder `roadmap <https://github.com/OCA/mis-builder/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement>`_ 
-and `known issues <https://github.com/OCA/mis-builder/issues?q=is%3Aopen+is%3Aissue+label%3Abug>`_ can 
+The mis_builder `roadmap <https://github.com/OCA/mis-builder/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement>`_
+and `known issues <https://github.com/OCA/mis-builder/issues?q=is%3Aopen+is%3Aissue+label%3Abug>`_ can
 be found on github.
+
+Changelog
+=========
+
+12.0.3.1.0 (2019-10-26)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**Features**
+
+- Handle multi currency for commited purchase view. The amount in this
+  view are now converted to the base currency (the one with rate 1),
+  so summing them has some meaning. As a consequence, this view has
+  less usefulness if the company currency is not the one with rate 1,
+  Debit and credit being assumed to be in company currency.
+
+  Add the M2M to account.analytic.tag in the commited purchase view.
+
+  Fix sign issue in commited purchase view.
+
+  Include customer invoice in commited purchase view. The view is therefore
+  not only about purchases anymore. This should not be an issue because
+  GL accounts are differents for purchases and income anyway and generally
+  used in different KPI.
+
+  These are breaking changes. Change the status of ``mis_builder_demo`` to alpha,
+  since it is a demo module and it's content can change at any time without
+  any compatibility guarantees. (`#222 <https://github.com/oca/mis-builder/issues/222>`_)
+
+
+**Bugfixes**
+
+- Fix date casting error on committed expenses drilldown. (`#185 <https://github.com/oca/mis-builder/issues/185>`_)
 
 Bug Tracker
 ===========
@@ -59,7 +96,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/mis-builder/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/mis-builder/issues/new?body=module:%20mis_builder_demo%0Aversion:%2011.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/mis-builder/issues/new?body=module:%20mis_builder_demo%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -75,6 +112,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Stéphane Bidoul <stephane.bidoul@acsone.eu>
+* Arnaud Pineux <arnaud.pineux@acsone.eu>
 
 Maintainers
 ~~~~~~~~~~~
@@ -97,6 +135,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-sbidoul| 
 
-This module is part of the `OCA/mis-builder <https://github.com/OCA/mis-builder/tree/11.0/mis_builder_demo>`_ project on GitHub.
+This module is part of the `OCA/mis-builder <https://github.com/OCA/mis-builder/tree/12.0/mis_builder_demo>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

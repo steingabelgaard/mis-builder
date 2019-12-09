@@ -3,23 +3,16 @@
 
 from odoo import api, fields, models
 
-
-SRC_MIS_BUDGET = 'mis_budget'
+SRC_MIS_BUDGET = "mis_budget"
 
 
 class MisReportInstancePeriod(models.Model):
 
-    _inherit = 'mis.report.instance.period'
+    _inherit = "mis.report.instance.period"
 
-    source = fields.Selection(
-        selection_add=[
-            (SRC_MIS_BUDGET, 'MIS Budget'),
-        ],
-    )
+    source = fields.Selection(selection_add=[(SRC_MIS_BUDGET, "MIS Budget")])
     source_mis_budget_id = fields.Many2one(
-        comodel_name='mis.budget',
-        string='Budget',
-        oldname='source_mis_budget',
+        comodel_name="mis.budget", string="Budget", oldname="source_mis_budget"
     )
 
     @api.multi
@@ -31,7 +24,19 @@ class MisReportInstancePeriod(models.Model):
         to be inherited, and is useful to implement filtering
         on analytic dimensions or operational units.
 
+        The default filter is built from a ``mis_report_filters context``
+        key, which is a list set by the analytic filtering mechanism
+        of the mis report widget::
+
+          [(field_name, {'value': value, 'operator': operator})]
+
+        This default filter is the same as the one set by
+        _get_additional_move_line_filter on mis.report.instance, so
+        a budget.item is expected to have the same analytic fields as
+        a move line.
+
         Returns an Odoo domain expression (a python list)
         compatible with mis.budget.item."""
         self.ensure_one()
-        return []
+        filters = self._get_filter_domain_from_context()
+        return filters

@@ -20,11 +20,10 @@
   text-decoration: underline;
 }
 
-.odoo .oe_mis_builder_buttons {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
 .oe_mis_builder_content {
   padding: 10px;
+}
+
+.oe_mis_builder_analytic_filter_box {
+  padding-bottom: 10px;
 }

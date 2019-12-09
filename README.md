@@ -43,19 +43,19 @@ Here are some presentations:
 
 [//]: # (addons)
 
-Unported addons
----------------
+Available addons
+----------------
 addon | version | summary
 --- | --- | ---
-[mis_builder](mis_builder/) | 11.0.3.2.2 (unported) | Build 'Management Information System' Reports and Dashboards
-[mis_builder_budget](mis_builder_budget/) | 11.0.3.2.1 (unported) | Create budgets for MIS reports
-[mis_builder_demo](mis_builder_demo/) | 11.0.3.0.1 (unported) | Demo addon for MIS Builder
+[mis_builder](mis_builder/) | 12.0.3.5.0 | Build 'Management Information System' Reports and Dashboards
+[mis_builder_budget](mis_builder_budget/) | 12.0.3.4.0 | Create budgets for MIS reports
+[mis_builder_demo](mis_builder_demo/) | 12.0.3.1.0 | Demo addon for MIS Builder
 
 [//]: # (end addons)
 
 Translation Status
 ------------------
-[![Translation status](https://translation.odoo-community.org/widgets/mis-builder-12-0/-/multi-auto.svg)](https://translation.odoo-community.org/engage/mis-builder-12-0/?utm_source=widget)
+[![Translation status](https://translation.odoo-community.org/widgets/mis-builder-11-0/-/multi-auto.svg)](https://translation.odoo-community.org/engage/mis-builder-11-0/?utm_source=widget)
 
 ----
 
