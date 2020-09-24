@@ -97,6 +97,38 @@ be found on GitHub.
 Changelog
 =========
 
+12.0.3.6.3 (2020-08-28)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**Bugfixes**
+
+- Having a "Compare columns" added on a KPI with an associated style using a
+  Factor/Divider did lead to the said factor being applied on the percentages
+  when exporting to XLSX. (`#300 <https://github.com/OCA/mis-builder/issues/300>`_)
+
+
+**Misc**
+
+- `#280 <https://github.com/OCA/mis-builder/issues/280>`_, `#296 <https://github.com/OCA/mis-builder/issues/296>`_
+
+
+12.0.3.6.2 (2020-04-22)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**Bugfixes**
+
+- The "Settings" button is now displayed for users with the "Show full accounting features" right when previewing a report. (`#281 <https://github.com/OCA/mis-builder/issues/281>`_)
+
+
+12.0.3.6.1 (2020-04-22)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**Bugfixes**
+
+- Fix ``TypeError: 'module' object is not iterable`` when using
+  budgets by account. (`#276 <https://github.com/OCA/mis-builder/issues/276>`_)
+
+
 12.0.3.6.0 (2020-03-28)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
